@@ -51,7 +51,7 @@ a {
 }
 
 :root {
-  --ActiveBorder: linear-gradient(to right, hsl(249, 99%, 64%) to hsl(278, 94%, 30%));
+  --active-border: linear-gradient(to top, hsl(249, 99%, 64%) to hsl(278, 94%, 30%));
   --colors-red: hsl(0, 100%, 67%);
   --colors-white: hsl(0, 0%, 100%);
   --colors-light-gray-violet: hsl(270, 3%, 87%);

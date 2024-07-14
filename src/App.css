@@ -1,17 +1,20 @@
 main {
   display: flex;
   flex-direction: row;
-  /* gap: 15rem; */
+  align-items: stretch;
+  width: 100%;
 }
 
 .card-details {
   position: relative;
-  width: 33vw;
   height: 100vh;
   background-image: url(../public/images/bg-main-desktop.png);
   background-size: cover;
   background-repeat: no-repeat;
   color: var(--colors-white);
+  flex-grow: 1;
+  max-width: 40%;
+  min-width: 30%;
 }
 
 .card-front {
@@ -19,9 +22,11 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 28rem;
+  height: 18rem;
   gap: 1.25rem;
-  top: 10rem;
-  left: 10rem;
+  top: 8.5rem;
+  left: 10.25rem;
   background: url('../public/images/bg-card-front.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -36,76 +41,117 @@ main {
 .card-front .bottom {
   display: flex;
   gap: 10rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-transform: uppercase;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .card-back {
   position: fixed;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1.25rem;
-  top: 28rem;
+  justify-content: center;
+  align-items: flex-end;
+  width: 28rem;
+  height: 18rem;
+  top: 26rem;
   left: 16rem;
   background: url('../public/images/bg-card-back.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
 .card-back p {
-  margin: 6.5rem 4rem 7rem 22rem;
+  margin: 0 4rem 3rem 0;
 }
 
-.form {
+.card-container {
   display: flex;
-  /* display: none; */
-  flex-direction: column;
+  flex-grow: 2;
   justify-content: center;
   align-items: center;
-  width: 67vw;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 6.25rem 6.25rem 6.25rem 6.25rem;
+  width: 25rem;
+  max-width: 100%;
   font-size: 0.85rem;
   font-weight: 500;
   gap: 1rem;
+}
+
+.card .name {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.card .number {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.card .date {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  column-gap: 0.5rem;
+}
+
+.card .cvc {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.card button {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+input:focus {
+  border-color: var(--active-border);
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 40%;
 }
 
-.form-bottom {
-  display: flex;
-  gap: 20px;
+.empty-error input {
+  border-color: var(--colors-red);
+}
+
+.invalid-error input {
+  border-color: var(--colors-red);
+}
+
+.form-field.error label {
+  color: red;
 }
 
 .date {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 50%;
+  display: grid;
+  grid-template-columns: 6.25rem 6.25rem;
+  grid-template-rows: 1.75rem 3rem 2rem;
 }
 
-.date-inputs {
-  display: flex;
-  gap: 0.75rem;
+.date label {
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
-.date-inputs input {
-  width: 5rem;
+.date .month {
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
 
-.cvc {
-  flex-basis: 50%;
-}
-
-.cvc input {
-  width: 100%;
+.date .year {
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
 
 form button {
-  width: 40%;
   background-color: var(--colors-very-dark-violet);
   height: 3.25rem;
   margin-top: 1rem;
@@ -115,8 +161,9 @@ form button {
 }
 
 .confirmation {
-  display: none;
-  /* display: flex; */
+  /* display: none; */
+  display: flex;
+  flex-grow: 2;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -133,39 +180,65 @@ form button {
   font-size: 1.15rem;
 }
 
-.error {
+.error-message {
   color: var(--colors-red);
   margin-top: 1rem;
   display: none;
+}
+
+.empty-error .empty {
+  display: block;
+}
+
+.invalid-error .invalid {
+  display: block;
 }
 
 @media only screen and (max-width: 700px) {
   main {
     flex-direction: column;
     justify-content: flex-start;
-    gap: 15rem;
   }
 
   .card-details {
-    width: 100vw;
-    height: 30vh;
+    max-width: 100%;
+    max-height: 40vh;
+    min-height: 30vh;
+    flex-grow: 1;
     position: relative;
   }
 
   .card-front {
     z-index: 4;
-    top: 12rem;
+    top: 15rem;
     left: unset;
-    right: 11rem;
-  }
-  .card-back {
-    z-index: 3;
-    top: 3rem;
-    left: unset;
-    right: 5rem;
+    right: 7rem;
+    width: 15rem;
+    height: 9rem;
   }
 
-  .form {
-    width: 100vw;
+  .card-back {
+    z-index: 3;
+    top: 10rem;
+    left: unset;
+    right: 5rem;
+    width: 15rem;
+    height: 9rem;
+  }
+
+  .card {
+    width: 10rem;
+    max-width: 100%;
+    justify-content: center;
+    grid-template-columns: 5rem 5rem 5rem 5rem;
+  }
+
+  .card .date {
+    grid-template-columns: 5rem 5rem;
+  }
+
+  .card-container {
+    flex-grow: 2;
+    margin: 7.5rem 1rem 3rem 1rem;
   }
 }
