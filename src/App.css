@@ -3,6 +3,7 @@ main {
   flex-direction: row;
   align-items: stretch;
   width: 100%;
+  height: 100%;
 }
 
 .card-details {
@@ -40,7 +41,6 @@ main {
 
 .card-front .bottom {
   display: flex;
-  gap: 10rem;
   font-size: 1rem;
   text-transform: uppercase;
   justify-content: space-between;
@@ -161,7 +161,6 @@ form button {
 }
 
 .confirmation {
-  /* display: none; */
   display: flex;
   flex-grow: 2;
   flex-direction: column;
@@ -170,8 +169,17 @@ form button {
   gap: 1.5rem;
 }
 
+.confirmation div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 25rem;
+  max-width: 100%;
+}
+
 .confirmation button {
-  width: 40%;
   background-color: var(--colors-very-dark-violet);
   height: 3.25rem;
   margin-top: 1rem;
@@ -206,6 +214,7 @@ form button {
     min-height: 30vh;
     flex-grow: 1;
     position: relative;
+    font-size: 0.625rem;
   }
 
   .card-front {
@@ -215,6 +224,17 @@ form button {
     right: 7rem;
     width: 15rem;
     height: 9rem;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .card-front img {
+    width: 25%;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-front .bottom {
+    font-size: 0.75rem;
   }
 
   .card-back {
@@ -240,5 +260,9 @@ form button {
   .card-container {
     flex-grow: 2;
     margin: 7.5rem 1rem 3rem 1rem;
+  }
+
+  .confirmation {
+    padding: 0.5rem;
   }
 }

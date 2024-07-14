@@ -52,7 +52,8 @@ export function App() {
     } else if (
       +formValues.month < 1 ||
       +formValues.month > 12 ||
-      +formValues.year < 25 ||
+      +formValues.year < 24 ||
+      +formValues.year > 35 ||
       formValues.month.match(/^[0-9]+$/) === null ||
       formValues.year.match(/^[0-9]+$/) === null
     ) {
@@ -61,10 +62,7 @@ export function App() {
 
     if (!formValues.cvc) {
       setErrors(errors => ({ ...errors, cvc: 'EMPTY' }));
-    } else if (
-      (formValues.cvc.length > 2 && formValues.cvc.length < 5) ||
-      formValues.number.match(/^[0-9]+$/) !== null
-    ) {
+    } else if (formValues.cvc.length <= 2 || formValues.cvc.length >= 5 || formValues.cvc.match(/^[0-9]+$/) === null) {
       setErrors(errors => ({ ...errors, cvc: 'INVALID' }));
     }
 
@@ -179,13 +177,15 @@ export function App() {
 
       {step === 'confirm' && (
         <section className="confirmation">
-          <img src="./images/icon-complete.svg" alt="" />
+          <div>
+            <img src="./images/icon-complete.svg" alt="" />
 
-          <h2>THANK YOU!</h2>
+            <h2>THANK YOU!</h2>
 
-          <p>We've added your card details</p>
+            <p>We've added your card details</p>
 
-          <button onClick={onContinue}>Continue</button>
+            <button onClick={onContinue}>Continue</button>
+          </div>
         </section>
       )}
     </main>
