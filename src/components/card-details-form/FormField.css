@@ -24,23 +24,30 @@
 .form-field .input-group {
   display: flex;
   gap: 0.5rem;
+}
+
+.form-field .input-container {
   position: relative;
+  flex-grow: 1;
+  border-radius: 0.5rem;
 }
 
 .form-field input {
   color: var(--colors-dark-grayish-violet);
-  z-index: 4;
+  border-radius: inherit;
+  border: 1px solid var(--colors-light-gray-violet);
 }
 
-.form-field .input-group:hover:after {
+.form-field .input-container:focus-within:after {
   content: '';
   position: absolute;
   top: -1px;
+  z-index: -1;
   left: -1px;
   width: calc(100% + 2px);
   height: calc(100% + 2px);
-  border-radius: 0.5rem;
-  background: linear-gradient(45deg, red, blue);
+  border-radius: inherit;
+  background: linear-gradient(45deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
 }
 
 .form-field .error-message {
@@ -49,4 +56,10 @@
 
 .form-field.error input {
   border-color: var(--colors-red);
+}
+
+@media (max-width: 700px) {
+  .form-field label {
+    font-size: 0.625rem;
+  }
 }

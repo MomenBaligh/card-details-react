@@ -34,7 +34,7 @@ export function PaymentCard({ values: { name, number, year, month, cvc } }) {
       </div>
 
       <div className="card-back">
-        <p>{cvc || defaultValues.cvc}</p>
+        <p>{cvc.padEnd(3, '0') || defaultValues.cvc}</p>
       </div>
     </div>
   );

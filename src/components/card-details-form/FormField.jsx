@@ -11,9 +11,21 @@ export function FormField({ label, errors: allErrors, required, children, ...pro
       </label>
 
       <div className="input-group">
-        <input id={props.name} {...props} />
+        <div className="input-container">
+          <input id={props.name} {...props} />
+        </div>
 
-        {children}
+        {children ? (
+          children.length ? (
+            children.map((child, i) => (
+              <div key={i} className="input-container">
+                {child}
+              </div>
+            ))
+          ) : (
+            <div className="input-container">{children}</div>
+          )
+        ) : null}
       </div>
 
       {hasErrors && (

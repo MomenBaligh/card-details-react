@@ -32,6 +32,7 @@ export function CardDetailsForm({ values, errors, onFieldChange, onSubmit }) {
         onChange={onFieldChange}
         errors={[errors?.name]}
         placeholder="e.g. Jane Appleseed"
+        maxLength="20"
       />
 
       <FormField
@@ -62,6 +63,7 @@ export function CardDetailsForm({ values, errors, onFieldChange, onSubmit }) {
         onChange={onFieldChange}
         errors={[errors?.cvc]}
         placeholder="e.g. 123"
+        maxLength="4"
       />
 
       <button>Confirm</button>

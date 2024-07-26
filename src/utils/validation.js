@@ -12,7 +12,6 @@ export const validateCardInfo = ({ name, number, month, year, cvc }) => {
   if (!number) {
     errors.number = 'EMPTY';
   } else if (number.split(' ').join('').length !== 16 || !isNumeric(number.split(' ').join(''))) {
-    console.log(number.split(' ').join('').length);
     errors.number = 'INVALID';
   }
 

@@ -31,8 +31,6 @@ input {
   font: inherit;
   outline: none;
   height: 2.75rem;
-  border: 1px var(--colors-light-gray-violet) solid;
-  border-radius: 0.5rem;
   font-size: 1rem;
   padding: 0.75rem;
   width: 100%;
