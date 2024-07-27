@@ -26,7 +26,7 @@ export function PaymentCard({ values: { name, number, year, month, cvc } }) {
 
         <p className="card-number">{onNumberChange(number).padEnd(16, '0') || defaultValues.number}</p>
 
-        <p>{name || defaultValues.name}</p>
+        <p>{name.slice(0, 25) || defaultValues.name}</p>
 
         <p>
           {month.padStart(2, '0') || defaultValues.month}/{year.padStart(2, '0') || defaultValues.year}

@@ -1,3 +1,5 @@
+import { validationErrors, EMPTY_ERROR, INVALID_ERROR } from '../../const';
+
 import './FormField.css';
 
 export function FormField({ label, errors: allErrors, required, children, ...props }) {
@@ -29,7 +31,11 @@ export function FormField({ label, errors: allErrors, required, children, ...pro
       </div>
 
       {hasErrors && (
-        <p className="error-message">{errors.some(error => error === 'EMPTY') ? "Can't be blank!" : 'Invalid'}</p>
+        <p className="error-message">
+          {errors.some(error => error === 'EMPTY')
+            ? `${validationErrors[props.name][EMPTY_ERROR]}`
+            : `${validationErrors[props.name][INVALID_ERROR]}`}
+        </p>
       )}
     </div>
   );
